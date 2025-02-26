@@ -1,0 +1,13 @@
+import string 
+num =input("please enter any number ")
+d={}
+
+for i in string.digits:
+    d[i]=0
+
+print(d)
+for i in num:
+    if i in d:
+        d[i]+=1
+
+print(d) 
