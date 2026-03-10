@@ -1,0 +1,37 @@
+import tkinter,time,tkinter.messagebox
+bg=tkinter.Tk()
+our=tkinter.StringVar()
+min=tkinter.StringVar()
+secs=tkinter.StringVar()
+our.set("00")
+min.set("00")
+secs.set("00")
+def start():
+    h=int(hour.get())
+    m=int(minute.get())
+    s=int(sec.get())
+    ts=h*3600+m*60+s
+    while ts>=0:
+
+        
+        ts=ts-1
+        th=ts//3600
+        tm=ts%3600//60
+        tts=ts%60
+        print(th,tm,tts)
+        our.set(th) 
+        min.set(tm)  
+        secs.set(tts)
+        bg.update()
+        time.sleep(1)
+        if ts ==0:
+            tkinter.messagebox.showinfo("timer done","FINISED")
+hour=tkinter.Entry(bg,font=('Comic Sans MS',50,'bold'),textvariable=our)
+hour.grid(row=1,column=1)
+minute=tkinter.Entry(bg,font=('Comic Sans MS',50,'bold'),textvariable=min)
+minute.grid(row=2,column=1)
+sec=tkinter.Entry(bg,font=('Comic Sans MS',50,'bold'),textvariable=secs)
+sec.grid(row=3,column=1)
+ntr=tkinter.Button(bg,text=("set timer"),font=('Comic Sans MS',50,'bold'),command=start)
+ntr.grid(row=2,column=3)
+bg.mainloop()
